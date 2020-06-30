@@ -48,23 +48,24 @@ namespace OLab_2.Views
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            if (btnChangePass.Text == "Change")
+            if (btnChangePass.Text == "CHANGE")
             {
-                btnChangePass.Text = "Confirm";
+                btnChangePass.Text = "CONFIRM";
                 MessageBox.Show("Nhập mật khẩu cũ");
                 txtPass.UseSystemPasswordChar = false;
                 txtPass.Text = "";
             }
-            else if (btnChangePass.Text == "Confirm")
+            else if (btnChangePass.Text == "CONFIRM")
             {
-                if (txtPass.Text == passTemp)
+                if (txtPass.Text == passTemp.Trim())
                 {
                     MessageBox.Show("Xác nhận, nhập mật khẩu mới");
-                    btnChangePass.Text = "Okay";
+                    btnChangePass.Text = "OKAY";
                 }
                 else
                 {
-                    btnChangePass.Text = "Change";
+                    MessageBox.Show("Xác nhận thất bại");
+                    btnChangePass.Text = "CHANGE";
                     txtPass.UseSystemPasswordChar = true;
                     txtPass.Text = passTemp;
                 }
@@ -72,7 +73,7 @@ namespace OLab_2.Views
             else
             {
                 passTemp = txtPass.Text;
-                btnChangePass.Text = "Change";
+                btnChangePass.Text = "CHANGE";
                 txtPass.UseSystemPasswordChar = true;
             }
         }
